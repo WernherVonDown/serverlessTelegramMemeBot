@@ -16,7 +16,7 @@ Admin can:
 * get meme
 * upload meme
 * see who has uploaded meme
-* block users who has uploaded meme
+* block a user who has uploaded meme
 * delete meme
 
 Moderator can:
