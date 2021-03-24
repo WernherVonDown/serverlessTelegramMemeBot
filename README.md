@@ -23,7 +23,7 @@ Moderator can:
 * get meme
 * upload meme
 * gets all uploading memes from other users (if there are several moderators, the meme will be sent to random one)
-* can delete memes from users but not when moderater uses "get meme"
+* can delete memes from users but not when moderator uses "get meme"
 * see who has uploaded meme
 
 User can:
