@@ -9,7 +9,7 @@ Where ```TELEGRAM_ACCESS_TOKEN``` is your telegram bot token.
 And ```INVOKE_URL``` is API endpoint of your lambda's API Gateway, that is deployed earler at step 1.
 
 **Discription**
-This bot supports two languages english and russion. It depends on what language is using current device. Default language is english.
+This bot supports two languages english and russian. It depends on what language is using current device. Default language is english.
 There are three roles: admin, moderator and user.
 
 Admin can:
