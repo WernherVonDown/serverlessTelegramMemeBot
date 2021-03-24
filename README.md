@@ -10,7 +10,7 @@ And ```INVOKE_URL``` is API endpoint of your lambda's API Gateway, that is deplo
 
 **Discription**
 This bot supports two languages english and russion. It depends on what language is using a device. Default language is english.
-There are three roles: admin, moderator, user for this bot.
+There are three roles: admin, moderator and user.
 
 Admin can:
 * get meme
