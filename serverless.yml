@@ -1,0 +1,58 @@
+service: serverless-telegram-meme-bot
+useDotenv: true
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: us-east-1
+  lambdaHashingVersion: 20201221
+  apiGateway:
+    shouldStartNameWithService: true
+  environment:
+    TELEGRAM_TOKEN: ${TELEGRAM_TOKEN}
+    telegramUsersTableName: ${telegramUsersTableName}
+    telegramMemesTableName: ${telegramMemesTableName}
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:*
+          Resource: '*'
+
+functions:
+  processWebhook:
+    handler: handler.processTelegramWebhook
+    events:
+      - http:
+          path: /
+          method: post
+
+resources:
+  Resources:
+    MyDynamoDbTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${env:telegramUsersTableName}
+        AttributeDefinitions:
+          - AttributeName: ID
+            AttributeType: N
+        KeySchema:
+          - AttributeName: ID
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+    MyDynamoDbTable2:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${env:telegramMemesTableName}
+        AttributeDefinitions:
+          - AttributeName: ID
+            AttributeType: S
+        KeySchema:
+          - AttributeName: ID
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
